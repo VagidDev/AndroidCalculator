@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="mainBackground">#F7F8FB</color>
+    <color name="equationText">#818181</color>
+    <color name="resultText">#424242</color>
+    <color name="letterFont">#7CC9FF</color>
+    <color name="buttonBackground">#FFFFFF</color>
+    <color name="operationBackground">#ADE2FF</color>
+    <color name="numberFont">#38B9FF</color>
+    <color name="equalsButtonBackground">#19ACFF</color>
+    <color name="equalsButton">#B2DAFF</color>
+    <color name="clearButton">#858585</color>
+</resources>
