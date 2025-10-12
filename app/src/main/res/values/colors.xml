@@ -10,6 +10,7 @@
     <color name="operationBackground">#ADE2FF</color>
     <color name="numberFont">#38B9FF</color>
     <color name="equalsButtonBackground">#19ACFF</color>
+    <color name="operationButtonFont">#109DFF</color>
     <color name="equalsButton">#B2DAFF</color>
     <color name="clearButton">#858585</color>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.AppCompat.NumPadStyle">
+        <item name="android:textColor">@color/numberFont</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_width">68dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:background">@drawable/shape_rounded_numpad</item>
+
+    </style>
+
+    <style name="TextAppearance.AppCompat.NumPadStyle.OperationButtons">
+        <item name="android:textColor">@color/operationButtonFont</item>
+        <item name="android:background">@drawable/shape_rounded_numpad_operations</item>
+    </style>
+<!--    It is not correct extension, but it is -->
+    <style name="TextAppearance.AppCompat.NumPadStyle.OperationButtons.BigButtons">
+        <item name="android:layout_height">105dp</item>
+    </style>
+</resources>
