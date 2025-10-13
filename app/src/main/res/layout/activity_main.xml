@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/twPreviousInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="151dp"
@@ -23,7 +23,7 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/twCurrentInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
@@ -34,10 +34,11 @@
 
         android:textSize="52sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/twPreviousInput"
         tools:ignore="HardcodedText" />
 
     <GridLayout
+        android:id="@+id/glNumPad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="4"
@@ -49,110 +50,130 @@
         app:layout_constraintStart_toStartOf="parent" >
 
         <android.widget.Button
+            android:id="@+id/btnNumPadZero"
             android:layout_row="5"
             android:layout_column="0"
             android:layout_columnSpan="2"
             android:layout_width="158dp"
             android:layout_height="65dp"
-            android:text="0"
+            android:text="@string/numPadZeroValue"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="."
+            android:id="@+id/btnNumPadDot"
+            android:text="@string/numPadDotValue"
             android:layout_row="5"
             android:layout_column="2"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="1"
+            android:id="@+id/btnNumPadOne"
+            android:text="@string/numPadOneValue"
             android:layout_row="4"
             android:layout_column="0"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="2"
+            android:id="@+id/btnNumPadTwo"
+            android:text="@string/numPadTwoValue"
             android:layout_row="4"
             android:layout_column="1"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="3"
+            android:id="@+id/btnNumPadThree"
+            android:text="@string/numPadThreeValue"
             android:layout_row="4"
             android:layout_column="2"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="4"
+            android:id="@+id/btnNumPadFour"
+            android:text="@string/numPadFourValue"
             android:layout_row="3"
             android:layout_column="0"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="5"
+            android:id="@+id/btnNumPadFive"
+            android:text="@string/numPadFiveValue"
             android:layout_row="3"
             android:layout_column="1"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="6"
+            android:id="@+id/btnNumPadSix"
+            android:text="@string/numPadSixValue"
             android:layout_row="3"
             android:layout_column="2"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="7"
+            android:id="@+id/btnNumPadSeven"
+            android:text="@string/numPadSevenValue"
             android:layout_row="2"
             android:layout_column="0"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="8"
+            android:id="@+id/btnNumPadEight"
+            android:text="@string/numPadEightValue"
             android:layout_row="2"
             android:layout_column="1"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
         <android.widget.Button
-            android:text="9"
+            android:id="@+id/btnNumPadNine"
+            android:text="@string/numPadNineValue"
             android:layout_row="2"
             android:layout_column="2"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             />
 
         <android.widget.Button
-            android:text="Ac"
+            android:id="@+id/btnNumPadClearAll"
+            android:text="@string/numPadAllClearValue"
             android:layout_row="1"
             android:layout_column="0"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             android:textColor="@color/clearButton"
             />
-        <android.widget.Button
-            android:text="D"
+        <ImageButton
+            android:id="@+id/btnNumPadDelete"
+            android:contentDescription="@string/deleteButtonContent"
+            android:src="@drawable/ic_delete"
             android:layout_row="1"
             android:layout_column="1"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
+            android:elevation="1dp"
+            android:translationZ="2dp"
             />
 
         <android.widget.Button
-            android:text="/"
+            android:id="@+id/btnNumPadDivide"
+            android:text="@string/numPadDivideValue"
             android:layout_row="1"
             android:layout_column="2"
             style="@style/TextAppearance.AppCompat.NumPadStyle.OperationButtons"
             />
         <android.widget.Button
-            android:text="*"
+            android:id="@+id/btnNumPadMultiple"
+            android:text="@string/numPadMultipleValue"
             android:layout_row="1"
             android:layout_column="3"
             style="@style/TextAppearance.AppCompat.NumPadStyle.OperationButtons"
             />
 
         <android.widget.Button
-            android:text="-"
+            android:id="@+id/btnNumPadMinus"
+            android:text="@string/numPadMinusValue"
             android:layout_row="2"
             android:layout_column="3"
             style="@style/TextAppearance.AppCompat.NumPadStyle.OperationButtons"
             />
 
         <GridLayout
+            android:id="@+id/glNumPadBigButtons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_row="3"
@@ -162,12 +183,14 @@
             android:rowCount="2"
             >
             <android.widget.Button
-                android:text="+"
+                android:id="@+id/btnNumPadPlus"
+                android:text="@string/numPadPlusValue"
                 android:layout_row="0"
                 android:layout_column="0"
                 style="@style/TextAppearance.AppCompat.NumPadStyle.OperationButtons.BigButtons" />
             <android.widget.Button
-                android:text="="
+                android:id="@+id/btnNumPadEquals"
+                android:text="@string/numPadEqualsValue"
                 android:layout_row="1"
                 android:layout_column="0"
                 style="@style/TextAppearance.AppCompat.NumPadStyle.OperationButtons.BigButtons"
@@ -175,6 +198,39 @@
                 android:background="@drawable/shape_rounded_numpad_equals"
                 />
         </GridLayout>
+
+        <ImageButton
+            android:id="@+id/btnNumPadEpsilon"
+            android:contentDescription="@string/numPadEpsilonContent"
+            android:src="@drawable/ic_e"
+            android:layout_row="0"
+            android:layout_column="0"
+            style="@style/TextAppearance.AppCompat.NumPadStyle.SmallButtons"
+            />
+        <ImageButton
+            android:id="@+id/btnNumPadDoNotKnow"
+            android:contentDescription="@string/numPadDoNotKnowContent"
+            android:src="@drawable/ic_u"
+            android:layout_row="0"
+            android:layout_column="1"
+            style="@style/TextAppearance.AppCompat.NumPadStyle.SmallButtons"
+            />
+        <ImageButton
+            android:id="@+id/btnNumPadSin"
+            android:contentDescription="@string/numPadSinContent"
+            android:src="@drawable/ic_sin"
+            android:layout_row="0"
+            android:layout_column="2"
+            style="@style/TextAppearance.AppCompat.NumPadStyle.SmallButtons"
+            />
+        <ImageButton
+            android:id="@+id/btnNumPadDeg"
+            android:contentDescription="@string/numPadDegContent"
+            android:src="@drawable/ic_deg"
+            android:layout_row="0"
+            android:layout_column="3"
+            style="@style/TextAppearance.AppCompat.NumPadStyle.SmallButtons"
+            />
 
     </GridLayout>
 

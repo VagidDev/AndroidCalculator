@@ -12,5 +12,7 @@
     <color name="equalsButtonBackground">#19ACFF</color>
     <color name="operationButtonFont">#109DFF</color>
     <color name="equalsButton">#B2DAFF</color>
+<!--    unused-->
+    <color name="equalsButtonShadow">#5919ACFF</color>
     <color name="clearButton">#858585</color>
 </resources>

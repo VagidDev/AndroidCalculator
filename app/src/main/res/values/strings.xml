@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="numPadZeroValue">0</string>
+    <string name="numPadDotValue">.</string>
+    <string name="numPadOneValue">1</string>
+    <string name="numPadTwoValue">2</string>
+    <string name="numPadThreeValue">3</string>
+    <string name="numPadFourValue">4</string>
+    <string name="numPadFiveValue">5</string>
+    <string name="numPadSixValue">6</string>
+    <string name="numPadSevenValue">7</string>
+    <string name="numPadEightValue">8</string>
+    <string name="numPadNineValue">9</string>
+    <string name="numPadAllClearValue">Ac</string>
+    <string name="deleteButtonContent">delete button</string>
+    <string name="numPadDivideValue">/</string>
+    <string name="numPadMultipleValue">*</string>
+    <string name="numPadMinusValue">-</string>
+    <string name="numPadPlusValue">+</string>
+    <string name="numPadEqualsValue">=</string>
+    <string name="numPadEpsilonContent">Epsilon</string>
+    <string name="numPadDoNotKnowContent">I don\'t know</string>
+    <string name="numPadSinContent">Sinus</string>
+    <string name="numPadDegContent">Degree</string>
 </resources>
