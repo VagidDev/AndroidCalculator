@@ -15,7 +15,7 @@
         android:layout_marginTop="151dp"
         android:layout_marginEnd="27dp"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/equationText"
+        android:textColor="@color/mainText"
         android:text="6000/2+3227*2"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
         android:layout_marginEnd="27dp"
         android:fontFamily="@font/poppins_medium"
         android:text="=12,454"
-        android:textColor="@color/resultText"
+        android:textColor="@color/secondaryText"
 
         android:textSize="52sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +136,9 @@
             android:layout_row="1"
             android:layout_column="0"
             style="@style/TextAppearance.AppCompat.NumPadStyle"
-            android:textColor="@color/clearButton"
+            android:textAllCaps="false"
+            android:textColor="@color/clearButtonFont"
+            android:background="@drawable/shape_rounded_numpad_clear"
             />
         <ImageButton
             android:id="@+id/btnNumPadDelete"
@@ -147,6 +149,7 @@
             style="@style/TextAppearance.AppCompat.NumPadStyle"
             android:elevation="1dp"
             android:translationZ="2dp"
+            android:background="@drawable/shape_rounded_numpad_clear"
             />
 
         <android.widget.Button
@@ -194,7 +197,7 @@
                 android:layout_row="1"
                 android:layout_column="0"
                 style="@style/TextAppearance.AppCompat.NumPadStyle.OperationButtons.BigButtons"
-                android:textColor="@color/equalsButton"
+                android:textColor="@color/equalsButtonFont"
                 android:background="@drawable/shape_rounded_numpad_equals"
                 />
         </GridLayout>

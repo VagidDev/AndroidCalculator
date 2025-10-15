@@ -2,17 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="mainBackground">#F7F8FB</color>
-    <color name="equationText">#818181</color>
-    <color name="resultText">#FFFFFFFF</color>
-    <color name="letterFont">#A5A5A5</color>
+    <color name="mainText">#818181</color>
+    <color name="secondaryText">#FFFFFFFF</color>
     <color name="buttonBackground">#303136</color>
-    <color name="operationBackground">#005DB2</color>
+    <color name="operationButtonBackground">#005DB2</color>
     <color name="numberFont">#29A8FF</color>
     <color name="operationButtonFont">#B2DAFF</color>
     <color name="equalsButtonBackground">#1991FF</color>
-    <color name="equalsButton">#B2DAFF</color>
-    <color name="clearButton">#858585</color>
+    <color name="equalsButtonFont">#B2DAFF</color>
+    <color name="clearButtonFont">#A5A5A5</color>
+    <color name="clearButtonBackground">#616161</color>
     <!--    unused-->
     <color name="equalsButtonShadow">#5919ACFF</color>
 </resources>
