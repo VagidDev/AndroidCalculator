@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             btnNumPadSeven.setOnClickListener { writeToScreen(btnNumPadSeven.text.toString()) }
             btnNumPadEight.setOnClickListener { writeToScreen(btnNumPadEight.text.toString()) }
             btnNumPadNine.setOnClickListener { writeToScreen(btnNumPadNine.text.toString()) }
+            // actions
             btnNumPadPlus.setOnClickListener { writeToScreen(btnNumPadPlus.text.toString()) }
             btnNumPadMinus.setOnClickListener { writeToScreen(btnNumPadMinus.text.toString()) }
             btnNumPadMultiple.setOnClickListener { writeToScreen(btnNumPadMultiple.text.toString()) }
