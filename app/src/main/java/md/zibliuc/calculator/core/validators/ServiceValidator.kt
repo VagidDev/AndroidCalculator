@@ -7,14 +7,20 @@ object ServiceValidator {
         ZeroStartValidator(),
     )
 
-    private fun validate(str: String): Boolean {
-        for ( validator in validators ) {
+    private val actionValidator = LastActionValidator()
+
+    fun validateCurrentInput(str: String): Boolean {
+        for (validator in validators) {
             val response: Boolean = validator.validate(str)
             if (!response)
                 return false
         }
 
         return true
+    }
+
+    fun validateAction(str: String): Boolean {
+        return actionValidator.validate(str)
     }
 
 }

@@ -10,16 +10,41 @@ class DotCountValidator : Validator {
 
 class DotStartValidator : Validator {
     override fun validate(str: String): Boolean {
-        return !str.startsWith(".")
+        if (str.startsWith("."))
+            return false
+        else if (str.startsWith("0."))
+            return true
+
+        return true
     }
 }
 
 class ZeroStartValidator : Validator {
     override fun validate(str: String): Boolean {
-        return !str.startsWith("0")
+        val isStartsWithZero: Boolean = str.startsWith("0")
+        if (isStartsWithZero && str.length == 1)
+            return true
+        else if (isStartsWithZero && str.length > 1)
+            return false
+
+        return true
     }
 }
 
+class LastActionValidator : Validator {
+    private val actions: List<Char> = listOf(
+        '+', '-', '/', '*'
+    )
+
+    override fun validate(str: String): Boolean {
+        if (str.isBlank())
+            return true
+
+        return !actions.contains(str.last())
+    }
+}
+
+// Not used
 class NumberValidator : Validator {
     override fun validate(str: String): Boolean {
         //if (str.matches("[]"))
