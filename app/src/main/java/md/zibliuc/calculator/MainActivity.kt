@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun writeToScreen(item: String) {
+        if (binding.twPreviousInput.text.toString().contains("=")) {
+            clearAll()
+        }
+
         val currentText = binding.twCurrentInput.text.toString()
         val newText = if (currentText == "0") item
                         else currentText.plus(item)
@@ -66,6 +70,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calculate() {
+        if (binding.twPreviousInput.text.toString().contains("=")) {
+            return
+        }
 
         setOperation("=")
         binding.twCurrentInput.text = "result" //TODO: return of calculator class
