@@ -1,5 +1,6 @@
 package md.zibliuc.calculator.core.app
 
+import android.os.Build
 import java.util.regex.Pattern
 
 object Calculator {
@@ -25,9 +26,6 @@ object Calculator {
                         val indexOfOperation = expression.indexOf(currentOperation)
                         val result =
                             calculatePair(expression[indexOfOperation - 1], currentOperation, expression[indexOfOperation + 1])
-                        //debug
-                        println("Pair: " + expression[indexOfOperation - 1] + currentOperation
-                                + expression[indexOfOperation + 1] + "=" + result)
 
                         expression[indexOfOperation] = result
                         expression.removeAt(indexOfOperation + 1)
@@ -67,5 +65,18 @@ object Calculator {
         }
 
         return expression
+    }
+
+    fun formatAnswer(calculatedResult: String) : String {
+        val numbersAfterDot = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            calculatedResult.chars()
+                .dropWhile { it != '.' }
+                .count()
+        } else {
+            val splitString = calculatedResult.split('.')
+            if (splitString.size > 1)
+        }
+
+        return ""
     }
 }

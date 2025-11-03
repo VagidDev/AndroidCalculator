@@ -41,6 +41,16 @@ class CalculatorTest {
 
         assertEquals(expectation, actual)
     }
+
+    @Test
+    fun calculate_BigExpressionWithUnorderedMultiplies() {
+        //55+36-84*98/14-25/4*6*2/4
+        val expression = "55+36-84*98/14-25/4*6*2/4"
+        val expectation = "-515.75"
+        val actual = Calculator.calculate(expression)
+
+        assertEquals(expectation, actual)
+    }
     /*
     @Test
     fun calculate_MultiplyAndMinusThreeNumbers() {
