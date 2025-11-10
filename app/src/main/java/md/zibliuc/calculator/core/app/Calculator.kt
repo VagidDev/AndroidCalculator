@@ -1,6 +1,8 @@
 package md.zibliuc.calculator.core.app
 
 import android.os.Build
+import java.math.BigDecimal
+import java.text.DecimalFormat
 import java.util.regex.Pattern
 
 object Calculator {
@@ -34,8 +36,9 @@ object Calculator {
                 }
             }
         }
-
-        return expression[0]
+        print(expression)
+        val formattedAnswer = formatAnswer(expression[0])
+        return formattedAnswer
     }
 
     fun calculatePair(x: String, action: String, y: String) : String {
@@ -68,15 +71,45 @@ object Calculator {
     }
 
     fun formatAnswer(calculatedResult: String) : String {
-        val numbersAfterDot = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+        val numbersAfterDot: Int = (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
             calculatedResult.chars()
-                .dropWhile { it != '.' }
+                .dropWhile { it.toChar() != '.' }
                 .count()
         } else {
             val splitString = calculatedResult.split('.')
-            if (splitString.size > 1)
+            if (splitString.size > 1) {
+                splitString[1].length
+            } else {
+                0
+            }
+        }) as Int
+
+        if (numbersAfterDot > 10) {
+            /*val truncatedAnswer = calculatedResult.dropLast(numbersAfterDot - 10).toString()
+            val size: Int = truncatedAnswer.length
+            val lastNumber = truncatedAnswer.last()
+            if (lastNumber > '4') {
+               truncatedAnswer[size - 1] = (lastNumber + 1)
+            }*/
         }
 
-        return ""
+        return calculatedResult
+    }
+
+    fun roundNumber(number: String, countAfterDot: Int, actualCountAfterDot: Int?): String {
+        if (!number.contains('.')) {
+            return number
+        }
+
+        val truncatedNumber = if (actualCountAfterDot != null) {
+            actualCountAfterDot
+        } else {
+            // kind a shit
+            /*val splitNumber = number.split('.')
+            if (splitNumber.size > 1) {
+
+            }*/
+            0
+        }
     }
 }
