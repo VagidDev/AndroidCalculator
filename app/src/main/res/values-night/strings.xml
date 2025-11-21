@@ -22,4 +22,5 @@
     <string name="numPadDoNotKnowContent">I don\'t know</string>
     <string name="numPadSinContent">Sinus</string>
     <string name="numPadDegContent">Degree</string>
+    <string name="defaultCurrentInputValue">0</string>
 </resources>

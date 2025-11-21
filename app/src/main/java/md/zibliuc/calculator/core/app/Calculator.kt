@@ -1,9 +1,6 @@
 package md.zibliuc.calculator.core.app
 
-import android.os.Build
-import java.math.BigDecimal
-import java.text.DecimalFormat
-import java.util.regex.Pattern
+import kotlin.math.round
 
 object Calculator {
     private val symbols: Map<Int, Char> = mapOf(
@@ -12,8 +9,9 @@ object Calculator {
         2 to '*',
         3 to '/',
     )
+
     //need to change priority of operation and output
-    fun calculate(expression: String) : String {
+    fun calculate(expression: String): String {
 
         val expression: MutableList<String> = parse(expression)
 
@@ -22,12 +20,16 @@ object Calculator {
 
             operation?.let {
                 while (expression.contains(operation)) {
-                    val currentOperation = expression.find({ it == operation })
+                    val currentOperation = expression.find { it == operation }
 
                     currentOperation?.let {
                         val indexOfOperation = expression.indexOf(currentOperation)
                         val result =
-                            calculatePair(expression[indexOfOperation - 1], currentOperation, expression[indexOfOperation + 1])
+                            calculatePair(
+                                expression[indexOfOperation - 1],
+                                currentOperation,
+                                expression[indexOfOperation + 1]
+                            )
 
                         expression[indexOfOperation] = result
                         expression.removeAt(indexOfOperation + 1)
@@ -36,12 +38,11 @@ object Calculator {
                 }
             }
         }
-        print(expression)
-        val formattedAnswer = formatAnswer(expression[0])
-        return formattedAnswer
+
+        return expression[0].toDouble().round(10).toString()
     }
 
-    fun calculatePair(x: String, action: String, y: String) : String {
+    fun calculatePair(x: String, action: String, y: String): String {
         val xValue = x.toDouble()
         val yValue = y.toDouble()
 
@@ -55,9 +56,10 @@ object Calculator {
         return result.toString()
     }
 
-    fun parse(input: String) : MutableList<String> {
-        val numbers = input.split("+", "-", "/", "*")
-        val operations = input.filter { it in symbols.values }
+    fun parse(input: String): MutableList<String> {
+        val inputWithoutEquals = input.replace("=", "")
+        val numbers = inputWithoutEquals.split("+", "-", "/", "*")
+        val operations = inputWithoutEquals.filter { it in symbols.values }
 
         val expression: MutableList<String> = mutableListOf()
 
@@ -70,46 +72,10 @@ object Calculator {
         return expression
     }
 
-    fun formatAnswer(calculatedResult: String) : String {
-        val numbersAfterDot: Int = (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-            calculatedResult.chars()
-                .dropWhile { it.toChar() != '.' }
-                .count()
-        } else {
-            val splitString = calculatedResult.split('.')
-            if (splitString.size > 1) {
-                splitString[1].length
-            } else {
-                0
-            }
-        }) as Int
+}
 
-        if (numbersAfterDot > 10) {
-            /*val truncatedAnswer = calculatedResult.dropLast(numbersAfterDot - 10).toString()
-            val size: Int = truncatedAnswer.length
-            val lastNumber = truncatedAnswer.last()
-            if (lastNumber > '4') {
-               truncatedAnswer[size - 1] = (lastNumber + 1)
-            }*/
-        }
-
-        return calculatedResult
-    }
-
-    fun roundNumber(number: String, countAfterDot: Int, actualCountAfterDot: Int?): String {
-        if (!number.contains('.')) {
-            return number
-        }
-
-        val truncatedNumber = if (actualCountAfterDot != null) {
-            actualCountAfterDot
-        } else {
-            // kind a shit
-            /*val splitNumber = number.split('.')
-            if (splitNumber.size > 1) {
-
-            }*/
-            0
-        }
-    }
+fun Double.round(decimals: Int): Double {
+    var multiplier = 1.0
+    repeat(decimals) { multiplier *= 10 }
+    return round(this * multiplier) / multiplier
 }

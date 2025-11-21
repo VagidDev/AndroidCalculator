@@ -1,7 +1,9 @@
 package md.zibliuc.calculator
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import md.zibliuc.calculator.core.app.Calculator
 import md.zibliuc.calculator.core.validators.ServiceValidator
 import md.zibliuc.calculator.databinding.ActivityMainBinding
 
@@ -15,6 +17,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        savedInstanceState?.let {
+            with(binding) {
+                twPreviousInput.text = it.getString("previousText", "0")
+                twCurrentInput.text = it.getString("currentText", "0")
+            }
+        }
 
         with(binding) {
             btnNumPadDot.setOnClickListener { writeToScreen(btnNumPadDot.text.toString()) }
@@ -41,6 +50,18 @@ class MainActivity : AppCompatActivity() {
             //test
             // glNumPad.setOnClickListener { clearAll() }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("OPS", "We are definitely should not be there....")
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("previousText", binding.twPreviousInput.text.toString())
+        outState.putString("currentText", binding.twCurrentInput.text.toString())
     }
 
     fun writeToScreen(item: String) {
@@ -70,12 +91,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calculate() {
-        if (binding.twPreviousInput.text.toString().contains("=")) {
-            return
+        with(binding) {
+            if (twPreviousInput.text.toString().contains("=")) {
+                return
+            }
+            setOperation("=")
+            val expression = twPreviousInput.text.toString()
+            twCurrentInput.text = Calculator.calculate(expression) //TODO: return of calculator class
         }
 
-        setOperation("=")
-        binding.twCurrentInput.text = "result" //TODO: return of calculator class
     }
 
     fun clearAll() {
