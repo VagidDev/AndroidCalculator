@@ -39,7 +39,7 @@ object Calculator {
             }
         }
 
-        return expression[0].toDouble().round(10).toString()
+        return formatAnswer(expression[0])
     }
 
     fun calculatePair(x: String, action: String, y: String): String {
@@ -70,6 +70,15 @@ object Calculator {
         }
 
         return expression
+    }
+
+    fun formatAnswer(str: String): String {
+        val roundedValue = str.toDouble().round(10).toString()
+        if (roundedValue.endsWith(".0")) {
+            return roundedValue.dropLast(2)
+        }
+
+        return roundedValue
     }
 
 }

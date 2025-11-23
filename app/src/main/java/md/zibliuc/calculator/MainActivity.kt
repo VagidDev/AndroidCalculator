@@ -52,12 +52,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("OPS", "We are definitely should not be there....")
-
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString("previousText", binding.twPreviousInput.text.toString())
@@ -82,11 +76,17 @@ class MainActivity : AppCompatActivity() {
             val currentInput = twCurrentInput.text.toString()
             val previousInput = twPreviousInput.text.toString()
 
-            if (!currentInput.isBlank() ) {
+            if (currentInput.isBlank()) {
+                return
+            }
+
+            if (previousInput.contains("=")) {
+                twPreviousInput.text = currentInput.plus(operation)
+            } else {
                 twPreviousInput.text = previousInput
                     .plus(currentInput.plus(operation))
-                twCurrentInput.text = ""
             }
+            twCurrentInput.text = ""
         }
     }
 
@@ -104,13 +104,22 @@ class MainActivity : AppCompatActivity() {
 
     fun clearAll() {
         with(binding) {
-            twCurrentInput.text = ""
+            twCurrentInput.text = "0"
             twPreviousInput.text = ""
         }
     }
 
     fun clearLastCharacter() {
-        val deletedInput: CharSequence = binding.twCurrentInput.text.dropLast(1)
+        val currentText = binding.twCurrentInput.text.toString()
+
+        if (currentText == "0") {
+            return
+        } else if (currentText.length == 1) {
+            binding.twCurrentInput.text = "0"
+            return
+        }
+
+        val deletedInput: CharSequence = currentText.dropLast(1)
         binding.twCurrentInput.text = deletedInput
     }
 }

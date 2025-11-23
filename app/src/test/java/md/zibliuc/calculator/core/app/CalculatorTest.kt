@@ -8,7 +8,7 @@ class CalculatorTest {
     @Test
     fun calculate_SumTwoNumbers() {
         val expression = "9+6"
-        val expectation = "15.0"
+        val expectation = "15"
         val actual = Calculator.calculate(expression)
 
         assertEquals(expectation, actual)
@@ -17,7 +17,7 @@ class CalculatorTest {
     @Test
     fun calculate_SumThreeNumbers() {
         val expression = "4+5+6"
-        val expectation = "15.0"
+        val expectation = "15"
         val actual = Calculator.calculate(expression)
 
         assertEquals(expectation, actual)
@@ -26,7 +26,7 @@ class CalculatorTest {
     @Test
     fun calculate_MultiplyAndSumThreeNumbers() {
         val expression = "4+5*6"
-        val expectation = "34.0"
+        val expectation = "34"
         val actual = Calculator.calculate(expression)
 
         assertEquals(expectation, actual)
@@ -57,6 +57,16 @@ class CalculatorTest {
         //55+36-84*98/14-25/4*6*2/4
         val expression = "55+36-84*98/14-25/4*6*2/4"
         val expectation = "-515.75"
+        val actual = Calculator.calculate(expression)
+
+        assertEquals(expectation, actual)
+    }
+
+    @Test
+    fun calculate_IntegerResult() {
+        //55+36-84*98/14-25/4*6*2/4
+        val expression = "5+7"
+        val expectation = "12"
         val actual = Calculator.calculate(expression)
 
         assertEquals(expectation, actual)
